@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                echo "Building the code"
+                echo "Building the code with Maven"
             }
         }
 
         stage("Unit and Integration Test") {
             steps {
-                echo "Running unit tests"
-                echo "Running integration tests"
+                echo "Running unit tests with JUnit"
+                echo "Running integration tests with TestNG"
             }
             post {
                 success {
@@ -39,13 +39,13 @@ pipeline {
 
         stage("Code Analysis") {
             steps {
-                echo "Running code analysis"
+                echo "Running code analysis with SonarQube"
             }
         }
 
         stage("Security Scan") {
             steps {
-                echo "Running security scan"
+                echo "Running security scan with OWASP ZAP"
             }
             post {
                 success {
@@ -73,7 +73,7 @@ pipeline {
 
         stage("Deploy to Staging") {
             steps {
-                echo "Deploying to staging server"
+                echo "Deploying to staging server on AWS"
                 
             }
         }
@@ -81,13 +81,13 @@ pipeline {
 
         stage("Integration Tests on Staging") {
             steps {
-                echo "Running integration tests on staging"
+                echo "Running integration tests on staging Selenium"
             }
         }
 
         stage("Deploy to Production") {
             steps {
-                echo "Deploying to production server"
+                echo "Deploying to production server on AWS"
             }
             post {
                 success {
@@ -114,7 +114,8 @@ pipeline {
         }
     }
 }
-            )
+
+
         }
     }
 }
